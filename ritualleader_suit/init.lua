@@ -28,7 +28,7 @@ function ENT:Use(activator, caller)
 	caller:SetMaxHealth( 10000000 )
 	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/aries/ariessa_remake/ariessa_pm.mdl")
+	caller:SetModel("models/Cult_of_Iron/Cultist.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
