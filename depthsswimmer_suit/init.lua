@@ -29,7 +29,7 @@ function ENT:Use(activator, caller)
 	caller:SetMaxHealth( 50000000 )
 	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/alvaroports/nikasharkehv2pm.mdl")
+	caller:SetModel("models/arty/scp5k/faction/goc/grunt - arc9_pm.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
