@@ -29,7 +29,7 @@ function ENT:Use(activator, caller)
 	caller:SetMaxArmor(5000000)
 	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/Fursonas/KRYSTALFOX2018ASSA.mdl")
+	caller:SetModel("models/doometernal/maykrangel/maykrangel.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
