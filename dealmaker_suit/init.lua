@@ -28,7 +28,7 @@ function ENT:Use(activator, caller)
 	caller:SetMaxHealth( 1000000 )
 	caller:Give("tfa_cso_thunderpistol")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/kapuyas/rainworld/akm/survivor/akm_survivor_pm.mdl")
+	caller:SetModel("models/kosmic/ash_keeper/keeper_pm.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
