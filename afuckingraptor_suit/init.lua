@@ -22,13 +22,14 @@ function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.TitaniumArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 2100 )
-	caller:SetWalkSpeed( 240 )
-	caller:SetHealth( 1000000 )
-	caller:SetMaxHealth( 1000000 )
-	caller:Give("tfa_cso_thunderpistol")
+	caller:SetRunSpeed( 3200 )
+	caller:SetWalkSpeed( 900 )
+	caller:SetHealth( 90000000 )
+	caller:SetMaxHealth( 90000000 )
+	caller:SetJumpPower(500)
+	caller:Give("tfa_echo_clawsnew")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/kapuyas/rainworld/akm/survivor/akm_survivor_pm.mdl")
+	caller:SetModel("models/echo/deinonychus_pm.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
@@ -43,20 +44,21 @@ hook.Add("PlayerSay", "DropArmor", function(ply, text)
 		ply.shouldTakeLessDamageItself = false
 	    ply.shouldFallDamageBeReducedArmor = false
 	    ply.isWearingArmor = false
-		ply:StripWeapon("tfa_cso_thunderpistol")
+		ply:StripWeapon("tfa_echo_clawsnew")
         ply:SetModel(ply.oldModel)
 		ply:SetHealth(100)
 		ply:SetMaxHealth(100)
 		ply:SetWalkSpeed(200)
 		ply:SetRunSpeed(500)
+		ply:SetJumpPower(230)
 		local trace = {}
 			trace.start = ply:EyePos()
 			trace.endpos = trace.start + ply:GetAimVector() * 30
 			trace.filter = ply
 			
-		 ents.Create("titanium_armor")
+		 ents.Create("afuckingraptor_suit")
 		 local trl = util.TraceLine(trace)
-		 local pr = ents.Create("dealmaker_suit")
+		 local pr = ents.Create("afuckingraptor_suit")
 		 pr:SetPos(trl.HitPos)
 		 pr:Spawn()
 		 return ""

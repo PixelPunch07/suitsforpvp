@@ -22,13 +22,13 @@ function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.TitaniumArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 2100 )
-	caller:SetWalkSpeed( 240 )
+	caller:SetRunSpeed( 1700 )
+	caller:SetWalkSpeed( 650 )
 	caller:SetHealth( 1000000 )
-	caller:SetMaxHealth( 1000000 )
-	caller:Give("tfa_cso_thunderpistol")
+	caller:SetMaxHealth( 10000000 )
+	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/kapuyas/rainworld/akm/survivor/akm_survivor_pm.mdl")
+	caller:SetModel("models/aries/ariessa_remake/ariessa_pm.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
@@ -43,20 +43,20 @@ hook.Add("PlayerSay", "DropArmor", function(ply, text)
 		ply.shouldTakeLessDamageItself = false
 	    ply.shouldFallDamageBeReducedArmor = false
 	    ply.isWearingArmor = false
-		ply:StripWeapon("tfa_cso_thunderpistol")
+		ply:StripWeapon("weapon_suit_fists")
         ply:SetModel(ply.oldModel)
+		ply:SetRunSpeed(500)
+		ply:SetWalkSpeed(200)
 		ply:SetHealth(100)
 		ply:SetMaxHealth(100)
-		ply:SetWalkSpeed(200)
-		ply:SetRunSpeed(500)
 		local trace = {}
 			trace.start = ply:EyePos()
 			trace.endpos = trace.start + ply:GetAimVector() * 30
 			trace.filter = ply
 			
-		 ents.Create("titanium_armor")
+		 ents.Create("ritualleader_suit")
 		 local trl = util.TraceLine(trace)
-		 local pr = ents.Create("dealmaker_suit")
+		 local pr = ents.Create("ritualleader_suit")
 		 pr:SetPos(trl.HitPos)
 		 pr:Spawn()
 		 return ""

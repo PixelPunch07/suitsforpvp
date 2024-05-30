@@ -20,15 +20,20 @@ end;
 
 function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
-	     caller.TitaniumArmor = true
+	     caller.GooberArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 2100 )
-	caller:SetWalkSpeed( 240 )
-	caller:SetHealth( 1000000 )
-	caller:SetMaxHealth( 1000000 )
-	caller:Give("tfa_cso_thunderpistol")
+	caller:SetModelScale(0.7)
+	caller:SetRunSpeed( 2900 )
+	caller:SetWalkSpeed( 200 )
+	caller:SetFriction( 0.01)
+	caller:SetHealth( 6900 )
+	caller:SetMaxHealth( 6900 )
+	caller:SetArmor(1000000)
+	caller:SetMaxArmor(1000000)
+	caller:SetJumpPower(550)
+	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/kapuyas/rainworld/akm/survivor/akm_survivor_pm.mdl")
+	caller:SetModel("models/ralsei/ralsei.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
@@ -38,25 +43,29 @@ end;
 
 hook.Add("PlayerSay", "DropArmor", function(ply, text)
 	if (string.lower(text) == "/dropsuit") then
-		if (ply.TitaniumArmor) then
-		ply.TitaniumArmor = false
+		if (ply.GooberArmor) then
+		ply.GooberArmor = false
 		ply.shouldTakeLessDamageItself = false
 	    ply.shouldFallDamageBeReducedArmor = false
 	    ply.isWearingArmor = false
-		ply:StripWeapon("tfa_cso_thunderpistol")
+		ply:StripWeapon("weapon_suit_fists")
         ply:SetModel(ply.oldModel)
+		ply:SetFriction(8)
 		ply:SetHealth(100)
-		ply:SetMaxHealth(100)
-		ply:SetWalkSpeed(200)
+		pky:SetMaxHealth(100)
 		ply:SetRunSpeed(500)
+		ply:SetWalkSpeed(200)
+		ply:SetArmor(0)
+		ply:SetMaxArmor(255)
+		ply:SetJumpPower(230)
 		local trace = {}
 			trace.start = ply:EyePos()
 			trace.endpos = trace.start + ply:GetAimVector() * 30
 			trace.filter = ply
 			
-		 ents.Create("titanium_armor")
+		 ents.Create("thegoober_suit")
 		 local trl = util.TraceLine(trace)
-		 local pr = ents.Create("dealmaker_suit")
+		 local pr = ents.Create("thegoober_suit")
 		 pr:SetPos(trl.HitPos)
 		 pr:Spawn()
 		 return ""

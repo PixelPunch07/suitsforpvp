@@ -22,13 +22,16 @@ function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.TitaniumArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 2100 )
-	caller:SetWalkSpeed( 240 )
-	caller:SetHealth( 1000000 )
-	caller:SetMaxHealth( 1000000 )
-	caller:Give("tfa_cso_thunderpistol")
+	caller:EmitSound(Sound("pain/lich_intro.mp3"))
+	caller:SetRunSpeed( 2900 )
+	caller:SetWalkSpeed( 500 )
+	caller:SetHealth( 85000000 )
+	caller:SetMaxHealth( 85000000 )
+	caller:SetArmor(50000)
+	caller:SetMaxArmor(50000)
+	caller:Give("tfa_cso_mastercombatknife")
 	caller:SetBloodColor( 3 )
-	caller:SetModel("models/kapuyas/rainworld/akm/survivor/akm_survivor_pm.mdl")
+	caller:SetModel("models/mad_models/mad_shadowigris.mdl")
 	caller.shouldTakeLessDamageItself = false
 	caller.shouldFallDamageBeReducedArmor = true
 	caller.isWearingArmor = true
@@ -43,20 +46,22 @@ hook.Add("PlayerSay", "DropArmor", function(ply, text)
 		ply.shouldTakeLessDamageItself = false
 	    ply.shouldFallDamageBeReducedArmor = false
 	    ply.isWearingArmor = false
-		ply:StripWeapon("tfa_cso_thunderpistol")
+		ply:StripWeapon("tfa_cso_mastercombatknife")
         ply:SetModel(ply.oldModel)
 		ply:SetHealth(100)
 		ply:SetMaxHealth(100)
 		ply:SetWalkSpeed(200)
 		ply:SetRunSpeed(500)
+		ply:SetArmor(0)
+		ply:SetMaxArmor(255)
 		local trace = {}
 			trace.start = ply:EyePos()
 			trace.endpos = trace.start + ply:GetAimVector() * 30
 			trace.filter = ply
 			
-		 ents.Create("titanium_armor")
+		 ents.Create("shadowstalker_suit")
 		 local trl = util.TraceLine(trace)
-		 local pr = ents.Create("dealmaker_suit")
+		 local pr = ents.Create("shadowstalker_suit")
 		 pr:SetPos(trl.HitPos)
 		 pr:Spawn()
 		 return ""
