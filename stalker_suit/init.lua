@@ -22,7 +22,7 @@ function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.TitaniumArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 3300 )
+	caller:SetRunSpeed( 2500 )
 	caller:SetWalkSpeed( 700 )
 	caller:SetHealth( 700000 )
 	caller:SetMaxHealth( 700000 )
