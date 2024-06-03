@@ -22,10 +22,11 @@ function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.TitaniumArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 2000 )
+	caller:SetRunSpeed( 2800 )
 	caller:SetWalkSpeed( 600 )
 	caller:SetHealth( 5000000 )
 	caller:SetMaxHealth( 5000000 )
+	caller:SetMaxArmor(300000)
 	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
 	caller:SetModel("models/dotflare/gabrielenraged.mdl")
