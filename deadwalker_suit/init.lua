@@ -22,10 +22,10 @@ function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.TitaniumArmor = true
 	caller.oldModel = caller:GetModel()
-	caller:SetRunSpeed( 1500 )
+	caller:SetRunSpeed( 1000 )
 	caller:SetWalkSpeed( 230 )
-	caller:SetHealth( 1000000 )
-	caller:SetMaxHealth( 1000000 )
+	caller:SetHealth( 20000 )
+	caller:SetMaxHealth( 20000 )
 	caller:Give("weapon_suit_fists")
 	caller:SetBloodColor( 3 )
 	caller:SetModel("models/lobotomycorporation/FuneraloftheDeadButterflies.mdl")
