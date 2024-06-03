@@ -17,7 +17,7 @@ function ENT:Initialize()
 		physObj:EnableMotion(true)
 	end;
 end;
-
+//dont fucking use this
 function ENT:Use(activator, caller)
  if (!caller.isWearingArmor) then
 	     caller.GooberArmor = true
